@@ -9,6 +9,7 @@
 - `SHOW TABLES;` => mostra todas as tabelas
 - `CREATE DATABASE db_escola;` => cria o banco db_escola
 - `USE db_escola;` => usa o banco db_escola
+- `DESC nome_tabela;` => ver estrutura da tabela depois de ser criada
 
 ## cria tabelas
 ```sql
