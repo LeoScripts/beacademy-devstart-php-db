@@ -81,7 +81,7 @@ $ cd beacademy-devstart-php-db
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made by <a href="https://github.com/LeoScripts" target="_blank">{{Leandro Cavalcante}}</a>
+Made by <a href="https://github.com/LeoScripts" target="_blank">Leandro Cavalcante</a>
 
 &#xa0;
 
