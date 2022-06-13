@@ -1,38 +1,60 @@
 <?php
 
+ini_set('display_errors', 1);
 include '../vendor/autoload.php';
 
-use App\Controller\IndexController;
-use App\Controller\ProductController;
-use App\controller\CategoryController;
-use App\Controller\ErrorController;
+$database='mysql';
+$username='root';
+$password='12345';
 
 
-$url = explode('?', $_SERVER['REQUEST_URI'])[0];
+// string de concção
+$connection = new PDO('mysql:host=localhost;dbname='.$database,$username,$password);
 
-function CreateRoute(string $controllerName, string $methodName){
-    return [
-        'controller' => $controllerName,
-        'method' => $methodName,
-    ];
+// query no banco
+$query = 'SELECT * FROM tb_category';
+// recebendo a query no antes de executar
+$preparacao = $connection->prepare($query);
+// executando o nosso codigo
+$preparacao->execute();
+
+// fazendo uma chamada fetch e recebendo os dados do banco
+var_dump($preparacao->fetch()); 
+
+while($registro = $preparacao->fetch()) {
+  var_dump($registro);
 }
+// use App\Controller\IndexController;
+// use App\Controller\ProductController;
+// use App\controller\CategoryController;
+// use App\Controller\ErrorController;
 
-$routes=[
-    '/' => CreateRoute(IndexController::class, 'indexAction'),
-    '/produtos' => CreateRoute(ProductController::class, 'listAction'),
-    '/produtos/novo' => CreateRoute(ProductController::class, 'addAction'),
-    '/produtos/editar' => CreateRoute(ProductController::class, 'editAction'),
-    '/categoria' => CreateRoute(CategoryController::class, 'listAction'),
-    '/categoria/novo' => CreateRoute(CategoryController::class, 'addAction'),
-    '/categoria/edit' => CreateRoute(CategoryController::class, 'editAction'),
-];
 
-if(false === isset($routes[$url])){
-    (new ErrorController()) ->notFoundAction();
-    exit;
-}
+// $url = explode('?', $_SERVER['REQUEST_URI'])[0];
 
-$controllerName = $routes[$url]['controller'];
-$methodName = $routes[$url]['method'];
+// function CreateRoute(string $controllerName, string $methodName){
+//     return [
+//         'controller' => $controllerName,
+//         'method' => $methodName,
+//     ];
+// }
 
-(new $controllerName()) -> $methodName();
+// $routes=[
+//     '/' => CreateRoute(IndexController::class, 'indexAction'),
+//     '/produtos' => CreateRoute(ProductController::class, 'listAction'),
+//     '/produtos/novo' => CreateRoute(ProductController::class, 'addAction'),
+//     '/produtos/editar' => CreateRoute(ProductController::class, 'editAction'),
+//     '/categoria' => CreateRoute(CategoryController::class, 'listAction'),
+//     '/categoria/novo' => CreateRoute(CategoryController::class, 'addAction'),
+//     '/categoria/edit' => CreateRoute(CategoryController::class, 'editAction'),
+// ];
+
+// if(false === isset($routes[$url])){
+//     (new ErrorController()) ->notFoundAction();
+//     exit;
+// }
+
+// $controllerName = $routes[$url]['controller'];
+// $methodName = $routes[$url]['method'];
+
+// (new $controllerName()) -> $methodName();
