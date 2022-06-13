@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Controller\IndexController;
 use App\Controller\ProductController;
-use App\controller\CategoryController;
+use App\Controller\CategoryController;
 function CreateRoute(string $controllerName, string $methodName){
     return [
         'controller' => $controllerName,

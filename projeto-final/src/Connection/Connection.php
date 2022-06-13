@@ -3,14 +3,15 @@
 declare(strict_types=1);
 
 namespace App\Connection;
+use PDO;
 
 abstract class Connection 
 {
-  public static function getConnection(): \PDO
+  public static function getConnection(): PDO
   {
-    $database='mysql';
+    $database='db_store';
     $username='root';
-    $password='12345';
+    $password='livre';
     
     return new PDO('mysql:host=localhost;dbname='.$database,$username,$password);
   }
