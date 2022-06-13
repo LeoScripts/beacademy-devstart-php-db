@@ -16,23 +16,19 @@ class CategoryController extends AbstractController
         $result = $con->prepare('SELECT * FROM tb_category');
         $result->execute();
 
-        $cat = $result->fetch(\PDO::FETCH_ASSOC);
+        include dirname(__DIR__).'/View/category/list.php';
 
-        echo $cat['id'];
-        echo $cat['name'];
-        echo $cat['description'];
-
-        parent::render('category/list');
+        parent::render('category/list', $result);
 
     }
 
     public function addAction():void
     {
-    parent::render('category/add');
+    // parent::render('category/add');
     }
 
     public function editAction():void
     {
-    parent::render('category/edit');
+    // parent::render('category/edit');
     }
 }
