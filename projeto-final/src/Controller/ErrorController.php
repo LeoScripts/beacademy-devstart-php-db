@@ -6,8 +6,8 @@ namespace App\Controller;
 
 class ErrorController extends AbstractController
 {
-    public function notFoundAction(): void
-    {
-        parent:: render('error/notFound');
-    }
+  public function notFoundAction(): void
+  {
+    parent::render('error/notFound');
+  }
 }
