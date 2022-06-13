@@ -3,13 +3,17 @@
 ini_set('display_errors', 1);
 include '../vendor/autoload.php';
 
-$database='mysql';
-$username='root';
-$password='12345';
+// $database='mysql';
+// $username='root';
+// $password='12345';
 
 
-// string de concção
-$connection = new PDO('mysql:host=localhost;dbname='.$database,$username,$password);
+// // string de concção
+// $connection = new PDO('mysql:host=localhost;dbname='.$database,$username,$password);
+
+use App\Connection\Connection;
+
+$connection = Connection::getConnection();
 
 // query no banco
 $query = 'SELECT * FROM tb_category';
