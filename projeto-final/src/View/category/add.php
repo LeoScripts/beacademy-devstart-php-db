@@ -9,7 +9,3 @@
 
   <button class="btn btn-primary mb-3">Cadastrar</button>
 </form>
-
-<?php
-
-ini_set('display_errors', 1);

@@ -1,4 +1,5 @@
 <h1>Listar produtos</h1>
+<a href="/produtos/novo" class="btn btn-outline-primary">Novo produto</a>
 <table class="table table-hover table-stripred">
   <thead class="table-dark">
     <tr>
