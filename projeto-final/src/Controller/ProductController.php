@@ -55,13 +55,49 @@ class ProductController extends AbstractController
     $result = $con->prepare($query);
     $result->execute();
 
-    $message = 'Pronto, produto excluido';
+    // $message = 'Pronto, produto excluido';
 
-    include dirname(__DIR__).'/View/_partials/message.php';
+    // include dirname(__DIR__).'/View/_partials/message.php';
+
+    parent::renderMessage('Pronto, produto excluido');
   }
 
   public function editAction(): void
   {
-    parent::render('product/edit');
+    $id = $_GET['id'];
+    $con = Connection::getConnection();
+
+    $categories = $con->prepare('SELECT FROM tb_category');
+    $categories->execute();
+
+    if($_POST) {
+      $name = $_POST['name'];
+      $description = $_POST['description'];
+      $price = $_POST['price'];
+      $photo = $_POST['photo'];
+      $quantity = $_POST['quantity'];
+
+      $query = "
+        UPDATE tb_product SET
+          name='{$name}',
+          description='{$description}',
+          price='{$price}',
+          photo='{$photo}',
+          quantity='{$quantity}'
+        WHERE id='{$id}'
+      ";
+
+      $resultUpdate = $con->prepare($query);
+      $resultUpdate->execute();
+
+      echo 'Produto atualizado';
+    }
+
+    $query = " FROM tb_product WHERE id='{$id}'";
+
+    $result = $con->prepare($query);
+    $result->execute();
+
+    parent::render('product/edit', $categories);
   }
 }
