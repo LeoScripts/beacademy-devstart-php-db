@@ -14,6 +14,6 @@ abstract class Connection
     $username = 'root';
     $password = 'livre';
 
-    return new PDO('mysql:host=localhost;dbname=' . $database, $username, $password);
+    return new PDO('mysql:host=localhost;dbname='.$database,$username,$password);
   }
 }

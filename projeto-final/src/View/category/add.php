@@ -1,6 +1,6 @@
 <h1>Adicionar Categoria</h1>
 
-<form action="" method="post">
+<form action="" method="Post">
   <label for="name">Nome</label>
   <input id="name" name="name" type="text" class="form-control mb-3">
 

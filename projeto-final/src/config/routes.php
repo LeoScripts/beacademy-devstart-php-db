@@ -22,6 +22,7 @@ $routes = [
   '/categoria' => CreateRoute(CategoryController::class, 'listAction'),
   '/categoria/nova' => CreateRoute(CategoryController::class, 'addAction'),
   '/categoria/edit' => CreateRoute(CategoryController::class, 'editAction'),
+  '/categoria/excluir' => CreateRoute(CategoryController::class, 'removeAction'),
 ];
 
 return $routes;
