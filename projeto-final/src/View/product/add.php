@@ -2,8 +2,8 @@
 
 <form action="" method="Post">
 
-    <label for="category">Categoria</label>
-    <select id="category" name="category" type="text" class="form-control mb-3">
+    <label for="category_id">Categoria</label>
+    <select id="category_id" name="category_id" type="text" class="form-control mb-3">
       <option selected> -- Selecione --</option>
 
       <?php
