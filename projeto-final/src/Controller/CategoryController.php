@@ -16,8 +16,6 @@ class CategoryController extends AbstractController
     $result = $con->prepare('SELECT * FROM tb_category');
     $result->execute();
 
-    include dirname(__DIR__) . '/View/category/list.php';
-
     parent::render('category/list', $result);
   }
 
@@ -41,13 +39,16 @@ class CategoryController extends AbstractController
   public function removeAction(): void
   {
     $con = Connection::getConnection();
-    $id = $_GET['id'];
+    $id =$_GET['id'];
     $query = "DELETE FROM tb_category WHERE id='{$id}'";
 
     $result = $con->prepare($query);
     $result->execute();
 
-    echo 'Pronto, categoria excluida';
+    $message = 'Categoria removida!';
+    $redirect = '/categorias';
+
+    parent::renderMessage($message,$redirect);
   }
 
   public function updateAction(): void

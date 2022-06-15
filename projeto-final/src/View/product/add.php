@@ -20,6 +20,9 @@
   <label for="description">Descrição</label>
   <textarea id="description" name="description" type="text" class="form-control mb-3"></textarea>
 
+  <label for="photo">URL da Imagem</label>
+  <input id="photo" name="photo" type="text" class="form-control mb-3">
+
   <label for="price">Preço</label>
   <input id="price" name="price" type="text" class="form-control mb-3">
 

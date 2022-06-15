@@ -13,7 +13,7 @@ abstract class AbstractController
     include dirname(__DIR__).'/View/_partials/footer.php';
   }
 
-  public function renderMessage(string $message): void
+  public function renderMessage(string $message, string $redirect): void
   {
     include dirname(__DIR__).'/View/_partials/head.php';
     include dirname(__DIR__).'/View/_partials/message.php';

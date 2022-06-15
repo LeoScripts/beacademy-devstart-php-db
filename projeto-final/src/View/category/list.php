@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <?php
-    while ($category = $data->fetch(\PDO::FETCH_ASSOC)) {
+    while ($category = $data->fetch(PDO::FETCH_ASSOC)) {
       // $id = $category['id'];
       // $name = $category['name'];
       // $description = $category['description'];
@@ -27,8 +27,8 @@
       echo "<td>{$description}</td>";
 
       echo "<td>
-        <a href='/categorias/editar?id='{$id}' class='btn btn-warning btn-sm'>Editar</a>
-        <a href='/categorias/excluir?id='{$id}' class='btn btn-danger btn-sm'>Excluir</a>
+        <a href='/categorias/editar?id={$id}' class='btn btn-warning btn-sm'>Editar</a>
+        <a href='/categorias/excluir?id={$id}' class='btn btn-danger btn-sm'>Excluir</a>
       </td>";
 
       echo '</tr>';

@@ -16,7 +16,7 @@ class ProductController extends AbstractController
     $result = $con->prepare('SELECT * FROM tb_product');
     $result->execute();
 
-    parent::render('product/list');
+    parent::render('product/list', $result);
   }
 
   public function addAction(): void
@@ -32,10 +32,14 @@ class ProductController extends AbstractController
       $categoryId = $_POST['category_id'];
       $createdAt = date('Y-m-d H:i:s');
 
-      $query = "INSERT INTO tb_product (name, description, price, photo, quantity, category_id, crated_at)
+      $query = "INSERT INTO tb_product (name, description, price, photo, quantity, category_id, created_at)
       VALUES
-      ('{$name}','{$description}','{$price}','{$photo}','{$quantity}','{$categoryId}','{$createdAt}')
+      ('{$name}','{$description}',{$price},'{$photo}','{$quantity}','{$categoryId}','{$createdAt}')
       ";
+      $con = Connection::getConnection();
+      $resultAdd = $con->prepare($query);
+      $resultAdd->execute();
+
       echo 'Produto adcionado com sucesso';
     }
 
@@ -55,11 +59,10 @@ class ProductController extends AbstractController
     $result = $con->prepare($query);
     $result->execute();
 
-    // $message = 'Pronto, produto excluido';
+    $message = 'Produto removido com sucesso!';
+    $redirect = '/produtos';
 
-    // include dirname(__DIR__).'/View/_partials/message.php';
-
-    parent::renderMessage('Pronto, produto excluido');
+    parent::renderMessage($message,$redirect);
   }
 
   public function editAction(): void
@@ -142,10 +145,10 @@ class ProductController extends AbstractController
       </table>
     ";
 
-    $pdf = new DomPdf();
-    $pdf->loadHtml($html);
+    // $pdf = new DomPdf();
+    // $pdf->loadHtml($html);
 
-    $pdf-render();
-    $pdf->stream();
+    // $pdf-render();
+    // $pdf->stream();
   }
 }
