@@ -62,10 +62,13 @@ class CategoryController extends AbstractController
 
       $queryUpdate = "UPDATE tb_category SET name='{$newName}', description='{$newDescription}' WHERE id='{$id}'";
 
-      $result = $con->prepare($queryUpdate);
-      $result->execute();
+      $resultUpdate = $con->prepare($queryUpdate);
+      $resultUpdate->execute();
 
-      echo 'Cartegoria atualizada';
+      $message = 'Categoria atualizada com sucesso!';
+      $redirect = '/categorias';
+
+      parent::renderMessage($message,$redirect);
     }
 
     $query = "SELECT * FROM tb_category WHERE id='{$id}'";

@@ -70,9 +70,6 @@ class ProductController extends AbstractController
     $id = $_GET['id'];
     $con = Connection::getConnection();
 
-    $categories = $con->prepare('SELECT FROM tb_category');
-    $categories->execute();
-
     if($_POST) {
       $name = $_POST['name'];
       $description = $_POST['description'];
@@ -80,29 +77,30 @@ class ProductController extends AbstractController
       $photo = $_POST['photo'];
       $quantity = $_POST['quantity'];
 
-      $query = "
-        UPDATE tb_product SET
+      $queryUpdate = " UPDATE tb_product SET
           name='{$name}',
           description='{$description}',
           price='{$price}',
           photo='{$photo}',
           quantity='{$quantity}'
-        WHERE id='{$id}'
-      ";
+        WHERE id={$id}";
 
-      $resultUpdate = $con->prepare($query);
+      $resultUpdate = $con->prepare($queryUpdate);
       $resultUpdate->execute();
 
       echo 'Produto atualizado';
 
     }
 
-    $query = " FROM tb_product WHERE id='{$id}'";
+    $query = "SELECT * FROM tb_product WHERE id='{$id}'";
+
 
     $result = $con->prepare($query);
     $result->execute();
 
-    parent::render('product/edit', $categories);
+    $data = $result->fetch(\PDO::FETCH_ASSOC);
+
+    parent::render('product/edit', $data);
   }
 
   public function reportAction(): void
