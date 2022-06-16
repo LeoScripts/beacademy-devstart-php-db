@@ -108,7 +108,11 @@ class ProductController extends AbstractController
 
     $con = Connection::getConnection();
 
-    $result = $con->prepare('SELECT prod.name,  prod.quantity, cat.name as category FROM tb_product prod INNER JOIN tb_category cat ON prod.category_id = cat.id');
+    //ex: 3
+    // $result = $con->prepare('SELECT prod.id, prod.name,  prod.quantity, cat.name as category FROM tb_product prod INNER JOIN tb_category cat ON prod.category_id = cat.id');
+    //ex: 2
+    // $result = $con->prepare('SELECT prod.id, prod.name, prod.quantity, cat.name as category FROM tb_product prod, tb_category cat');
+    $result = $con->prepare('SELECT prod.id, prod.name, prod.quantity FROM tb_product prod');
     $result->execute();
 
     $content = '';
@@ -118,24 +122,23 @@ class ProductController extends AbstractController
 
       $content .= "
         <tr>
-          <td>{$id}</td>
-          <td>{$name}</td>
-          <td>{$quantity}</td>
-          <td>{$category}</td>
+          <td style='background: #a013;text-align: center;border-right: 0.01rem solid #555;padding: 0.10rem 0.5rem;'>{$id}</td>
+          <td style='background: #4452;border-right: 0.01rem solid #555;padding: 0.10rem 0.5rem;'>{$name}</td>
+          <td style='background: #f953;text-align: center;padding: 0.10rem 0.5rem;'>{$quantity}</td>
         </tr>
       ";
     }
 
     $html = "
-      <h1>Relatorios de produtos no estoque</h1>
 
-      <table border='1' whdth='100%'>
-        <thead>
+      <h1 style='font-family: sans-serif; text-align: center;'>Relatorios de produtos no estoque</h1>
+
+      <table style='width:100vw;'>
+        <thead style='background: #a0a3;border-right: 0.01rem solid #555;padding: 0.10rem 0.5rem;'>
           <tr>
             <th>#ID</th>
             <th>Nome</th>
             <th>Quantidade</th>
-            <th>Categoria</th>
           </tr>
         </thead>
         <tbody>
@@ -144,10 +147,10 @@ class ProductController extends AbstractController
       </table>
     ";
 
-    // $pdf = new DomPdf();
-    // $pdf->loadHtml($html);
+    $pdf = new Dompdf();
+    $pdf->loadHtml($html);
 
-    // $pdf-render();
-    // $pdf->stream();
+    $pdf->render();
+    $pdf->stream();
   }
 }
