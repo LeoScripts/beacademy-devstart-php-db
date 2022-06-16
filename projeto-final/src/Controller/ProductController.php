@@ -94,6 +94,7 @@ class ProductController extends AbstractController
       $resultUpdate->execute();
 
       echo 'Produto atualizado';
+
     }
 
     $query = " FROM tb_product WHERE id='{$id}'";
