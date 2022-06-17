@@ -83,6 +83,9 @@ cd projeto-final
 # insert your credentils in
 # database and password
 
+#create tables
+# execute data of file db_store.sql in your datatase for create the tables and create rows in database
+
 # run database
 make up
 
