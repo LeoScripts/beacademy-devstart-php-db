@@ -1,4 +1,4 @@
-<div align="center" id="top"> 
+<div align="center" id="top">
   <!-- <img src="./.github/app.gif" alt="Beacademy Devstart Php Db" /> -->
 
   &#xa0;
@@ -26,14 +26,14 @@
 
 <!-- Status -->
 
-<!-- <h4 align="center"> 
+<!-- <h4 align="center">
 	🚧  Beacademy Devstart Php Db 🚀 Under construction...  🚧
-</h4> 
+</h4>
 
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#dart-about">About</a> &#xa0; | &#xa0;
   <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
@@ -46,7 +46,7 @@
 
 ## :dart: About ##
 
-Use database Sql 
+Use database Sql
 
 ## :sparkles: Features ##
 
@@ -59,11 +59,13 @@ Use database Sql
 
 The following tools were used in this project:
 
-- [SQL](https:)
+- [PHP](https://www.php.net/)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Mysql](https://www.mysql.com/)
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [MySQL](https:) or [MariaDB](https:) installed.
+Before starting :checkered_flag:, you need to have [PHP](https://www.php.net/),[Docker](https://docs.docker.com/get-docker/) [MySQL](https://www.mysql.com/) installed.
 
 ## :checkered_flag: Starting ##
 
@@ -73,6 +75,24 @@ $ git clone https://github.com/LeoScripts/beacademy-devstart-php-db
 
 # Access
 $ cd beacademy-devstart-php-db
+
+# run project access
+cd projeto-final
+
+# rename file .env.example to .env
+# insert your credentils in
+# database and password
+
+# run database
+make up
+
+# (optional) view SGBD Adminer 4.8.1
+# acces localhost:8080
+
+# run server
+php -S localhost:8000 -t public
+
+# access your browser localhost:8000
 ```
 [more information](./doc.md)
 
