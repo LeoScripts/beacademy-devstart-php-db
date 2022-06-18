@@ -3,6 +3,7 @@
 ini_set('display_errors', 1);
 include '../vendor/autoload.php';
 
+
 // instanciando direto no index principal -------------------------------------------------
 
 // $database='mysql';

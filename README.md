@@ -50,6 +50,10 @@ Use database Sql
 
 ## :sparkles: Features ##
 
+:heavy_check_mark: POO;\
+:heavy_check_mark: MVC;\
+:heavy_check_mark: implamented containers docker;\
+
 :heavy_check_mark: create;\
 :heavy_check_mark: read;\
 :heavy_check_mark: update;\

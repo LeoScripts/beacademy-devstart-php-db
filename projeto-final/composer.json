@@ -5,6 +5,7 @@
         }
     },
     "require": {
-        "dompdf/dompdf": "^1.2"
+        "dompdf/dompdf": "^1.2",
+        "vlucas/phpdotenv": "^5.4"
     }
 }
